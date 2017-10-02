@@ -1,10 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, Component } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
+import { ListEditComponent } from './list-edit/list-edit.component';
+import { ListStartComponent } from './list-start/list-start.component';
+import { ListsComponent } from './lists.component';
+import { AuthGardService } from '../auth/auth-gard.service';
+
+const listsRoutes: Routes = [
+  {
+    path: '', component: ListsComponent, children: [
+      { path: '', component: ListsComponent },
+      { path: 'new', component: ListsComponent, canActivate:[AuthGardService] },
+      { path: 'id', component: ListsComponent },
+      { path: 'id/edit', component: ListEditComponent, canActivate:[AuthGardService] },
+    ]
+  }
+];
 @NgModule({
   imports: [
-    CommonModule
+    RouterModule.forChild(listsRoutes)
   ],
-  declarations: []
+  exports: [RouterModule],
+  providers: [AuthGardService]
 })
 export class ListRoutingModule { }
