@@ -1,13 +1,25 @@
-<div class="d-flex justify-content-center align-items-center">
-  <p class="display-1 text-center align-middle">Welcome to <strong>ToDo 25</strong></p>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-6 align-middle divider-left">
-      <app-signin></app-signin>
-    </div>
-    <div class="col-6 align-middle ">
-      <app-signup></app-signup>
+<div class="background" >
+    <div class="text-white">
+      <div class="d-flex justify-content-center align-items-center">
+          <p class="display-1 text-center align-middle">Welcome to <strong>ToDo 25</strong></p>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6 align-middle text-center divider-left">
+                <p class="display-4 text-center align-middle">Sign<strong>in</strong></p>
+                <p class="lead text-center align-middle">Click on the next button to go to the signin page if you ar registered before</p>
+                <a class="btn btn-lg text-center m-4 btn-outline-dark  text-white" routerLink="/signin">Login</a>
+              </div>
+              <div class="col-6 align-middle text-center " >
+                {{h}}
+                <p class="display-4 text-center align-middle">Sign<strong>Up</strong></p>
+                <p class="lead text-center align-middle">Click on the next button to go to the signup page if you ar not registered before</p>
+                <a class="btn btn-lg text-center m-4 btn-outline-dark  text-white" routerLink="/signup">Register</a>
+            </div>
+            <div class="lead p-4 col-12  fixed-bottomx text-center " [ngStyle]="{'min-height': h}">
+              this is some description an text about the app
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-</div>
