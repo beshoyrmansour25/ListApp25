@@ -13,14 +13,56 @@ export class ListService {
     [
       'task 1',
       'task 2 is longer',
-      'task 3 /n has another line'
+      'task 3 has another line',
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line'
     ]),
     new List('second List',
     'this is just a dummy text to prove the concept',
     [
       'task 1',
       'task 2 is longer',
-      'task 3 /n has another line',
+      'task 3 has another line',
+      'this list has task 4 '
+    ]),
+    new List('First List',
+    'this is just a dummy text to prove the concept',
+    [
+      'task 1',
+      'task 2 is longer',
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line'
+    ]),
+    new List('First List',
+    'this is just a dummy text to prove the concept',
+    [
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line'
+    ]),
+    new List('second List',
+    'this is just a dummy text to prove the concept',
+    [
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line',
+      'this list has task 4 '
+    ]),
+    new List('First List',
+    'this is just a dummy text to prove the concept',
+    [
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line'
+    ]),
+    new List('second List',
+    'this is just a dummy text to prove the concept',
+    [
+      'task 1',
+      'task 2 is longer',
+      'task 3 has another line',
       'this list has task 4 '
     ]),
   ];

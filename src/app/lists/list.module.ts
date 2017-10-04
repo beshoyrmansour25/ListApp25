@@ -1,4 +1,4 @@
-import { ListItemComponent } from './../list-list/list-item/list-item.component';
+import { ListItemComponent } from './list-list/list-item/list-item.component';
 import { ListStartComponent } from './list-start/list-start.component';
 import { ListsComponent } from './lists.component';
 import { ListEditComponent } from './list-edit/list-edit.component';

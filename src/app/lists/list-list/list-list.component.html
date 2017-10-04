@@ -1,2 +1,9 @@
-<h3>list list Comp</h3>
-
+<div class="d-flex flex-row  align-items-stretch ">
+  <div class="container my-2">
+    <div class="card-columns">
+      <app-list-item *ngFor="let listEl of lists; let i = index"
+      [list]="listEl"
+      [index]="i"></app-list-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title p-2">{{list.title}}</h4>
+    <p class="card-text  px-2 pb-2">{{list.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush" *ngFor="let listItem of list.tasks">
+    <li class="list-group-item">
+      <span aria-hidden="true" class="close" style="cursor:pointer">&times;</span> {{listItem}}
+    </li>
+  </ul>
+  <div class="card-block">
+      <pre>{{closeResult}}</pre>
+  </div>
+  <div class="card-footer d-flex flex-row  justify-content-between align-items-center">
+    <a class="text-danger" (click)="open(content2, { windowClass: '' })">Delete</a>
+    <a class="btn card-link btn-outline-primary" (click)="open(content, { windowClass: '' })">Edit</a>
+  </div>
+</div>
+<ng-template #content2 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{list.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+  </div>
+  <div class="modal-body">
+    <p class="lead">
+      Are you sure that you want to delete <b>{{list.title}}</b> from your lists?
+    </p>
+  </div>
+  <div class="modal-footer d-flex flex-row  justify-content-between align-items-center">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cancel</button>
+    <button type="button" class="btn btn-outline-danger" (click)="c('Delete click')">Delete</button>
+  </div>
+</ng-template>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{list.title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="discription" class="lead">Discription</label>
+            <textarea name="Discription" [value]="list.description" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="New Task">
+            <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">add</button>
+                      </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let listItem of list.tasks">
+      <li class="list-group-item">
+        <span aria-hidden="true" class="close" style="cursor:pointer">&times;</span> {{listItem}}
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-outline-success float-left" (click)="c('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-danger" (click)="c('Delete click')">Delete</button>
+  </div>
+</ng-template>
+
