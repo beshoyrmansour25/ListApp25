@@ -1,3 +1,5 @@
+import { AuthModule } from './../auth/auth.module';
+import { ListListComponent } from './../lists/list-list/list-list.component';
 import { SignupComponent } from './../auth/signup/signup.component';
 import { SigninComponent } from './../auth/signin/signin.component';
 import { NgModule } from '@angular/core';
@@ -14,17 +16,17 @@ import { ListService } from '../lists/list.service';
   declarations:[
     HomeComponent,
     HeaderComponent,
-    SigninComponent,
-    SignupComponent
   ],
   imports: [
+    AuthModule,
     SharedModule,
     AppRoutingModule
   ],
   exports:[
     AppRoutingModule,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   providers:[
     AuthService,

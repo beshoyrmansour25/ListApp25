@@ -9,12 +9,13 @@ import { CommonModule } from '@angular/common';
 import { ListListComponent } from './list-list/list-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     CommonModule,
     ListRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [ 
     ListListComponent,
@@ -22,6 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListsComponent,
     ListStartComponent,
     ListItemComponent
-  ]
+  ],
 })
 export class ListModule { }

@@ -9,8 +9,8 @@ import { AuthGardService } from '../auth/auth-gard.service';
 const listsRoutes: Routes = [
   {
     path: '', component: ListsComponent, children: [
-      { path: '', component: ListsComponent },
-      { path: 'new', component: ListsComponent, canActivate:[AuthGardService] },
+      { path: '', component: ListStartComponent },
+      { path: 'new', component: ListEditComponent, canActivate:[AuthGardService] },
       { path: 'id', component: ListsComponent },
       { path: 'id/edit', component: ListEditComponent, canActivate:[AuthGardService] },
     ]
