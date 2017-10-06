@@ -1,0 +1,67 @@
+<div class="modal-content card">
+  <form>
+    <div class="modal-header card-block">
+      <input id="title" 
+      type="text" 
+      class="form-control form-control-lg mr-4" 
+      [value]="list.title" 
+      placeholder="list title"
+      ngModel
+      required>
+      <button type="button" class="close align-top" aria-label="Close" (click)="hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body card-block">
+      <!-- <div class="form-group">
+      <label for="title">List Title</label>
+      <input id="title" type="text" class="form-control form-control-lg" [value]="list.title" placeholder="list title">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div> -->
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="discription" class="lead">Discription</label>
+            <textarea name="Discription"
+             [value]="list.description" 
+             class="form-control"
+             id="discription"
+             ngModel
+             required>
+            </textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="New Task">
+            <span class="input-group-btn">
+                              <button class="btn btn-primary" type="button">add</button>
+                            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-group" *ngFor="let listItem of list.tasks">
+
+            <li class="list-group-item">
+              {{listItem}}<span aria-hidden="true" class="close" style="cursor:pointer">&times;</span>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="modal-footer card-footer d-flex flex-row  justify-content-between align-items-center">
+
+        <button type="button" class="mr-auto btn btn-outline-dark" (click)="hide()">Close</button>
+        <button type="button" class="mr-2 btn btn-outline-danger" (click)="delete()">Delete</button>
+        <button type="submit" class="mr-2 px-4 btn btn-outline-success">Save</button>
+
+      </div>
+    </div>
+  </form>
+</div>

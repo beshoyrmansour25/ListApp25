@@ -6,7 +6,7 @@ import { List } from './list.model';
 @Injectable()
 export class ListService {
   listChanged = new Subject<List[]>();
-
+public id:number;
   private lists: List[] = [
     new List('First List',
     'this is just a dummy text to prove the concept',
@@ -75,7 +75,9 @@ export class ListService {
   
   getLists(){ return this.lists.slice(); }
 
-  getList(index: number){ return this.lists[index]; }
+  getList(index: number){ 
+    this.id= index;
+    return this.lists[index]; }
 
   addList(list: List){
     this.lists.push(list);
