@@ -1,17 +1,20 @@
+import { ListEditComponent } from './lists/list-edit/list-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListEditComponent
 
   ],
   imports: [
@@ -21,9 +24,10 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     AuthModule,
     CoreModule,
-    NgbModule.forRoot()
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [BsModalRef],
+  entryComponents: [ListEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

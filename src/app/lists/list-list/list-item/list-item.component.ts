@@ -1,7 +1,11 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { List } from './../../list.model';
 import { ListService } from './../../list.service';
-import { Component, OnInit, Input } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { ListEditComponent } from '../../list-edit/list-edit.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'app-list-item',
@@ -12,29 +16,23 @@ export class ListItemComponent implements OnInit {
   @Input() list: List;
   @Input() index: number;
   closeResult: string;
+  
   constructor(
-    private modalService: NgbModal,
-    private listService:ListService
+    private modalService: BsModalService,
+    private listService:ListService,
+    private router: Router,
+    private viewContainerRef: ViewContainerRef,
+    private route: ActivatedRoute,
+    private bsModalRef: BsModalRef
   ) { }
-  open(content) {
-    
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
+  onEdit(index:number){
+    //this.userService.dataTobeEdit = { userId: user.id, firstName: user.first_name, lastName: user.last_name };
+    this.listService.id=index;
+    this.bsModalRef = this.modalService.show(ListEditComponent);
+    // console.log(index);
+    // this.router.navigate([index],{relativeTo: this.route}); 
+   }
   ngOnInit() {
   }
 }
