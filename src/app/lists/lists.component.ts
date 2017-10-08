@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-
-  constructor() { }
+  email: string;
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.email = this.authService.email;
   }
 
 }
