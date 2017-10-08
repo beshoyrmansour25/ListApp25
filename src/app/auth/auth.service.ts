@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService {
   token: string;
-
+  email: string;
   constructor(private router: Router) {}
 
   signupUser(email: string, password: string) {
@@ -12,7 +12,7 @@ export class AuthService {
     .then(response => console.log(response))
       .catch(
         error => console.log(error)
-      )
+      );
   }
 
   signinUser(email: string, password: string) {
@@ -25,9 +25,9 @@ export class AuthService {
               (token: string) => {
                 this.token = token;
                 console.log(token);
-                
+                this.email = email;
               }
-            )
+            );
         }
       )
       .catch(
@@ -47,7 +47,6 @@ export class AuthService {
       );
     return this.token;
   }
-
   isAuthenticated() {
     return this.token != null;
   }

@@ -3,10 +3,10 @@
   }
 .background {
   /* background: url("https://i.pinimg.com/originals/b9/3f/87/b93f870827a8464d78b0ea5431d3b899.jpg") repeat; */
-  background: url("https://hdqwalls.com/wallpapers/hex-abstract-material-design-ad.jpg") no-repeat center center fixed;
   height: 100%; 
   width: 100%;
   /* min-height: 700px; */
+  /* background-color: rgba(0, 0, 0, 0.1); */
   display: block;
   background-size: cover;
 }
