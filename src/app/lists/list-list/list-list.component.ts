@@ -9,21 +9,21 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./list-list.component.css']
 })
 export class ListListComponent implements OnInit {
- lists : List[];
- subscription: Subscription;
+  lists: List[];
+  subscription: Subscription;
 
- constructor(
-   private listService :ListService,
- ){}
+  constructor(
+    private listService: ListService,
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.subscription = this.listService.listChanged
-    .subscribe(
-      (lists:List[])=>{
-        this.lists=lists;
+      .subscribe(
+      (lists: List[]) => {
+        this.lists = lists;
       }
-    );
-    this.lists=this.listService.getLists();
+      );
+    this.lists = this.listService.getLists();
   }
 
 }

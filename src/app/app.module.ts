@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { ListEditComponent } from './lists/list-edit/list-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
   imports: [
     BrowserModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
     AuthModule,
