@@ -1,16 +1,10 @@
 <div class="modal-content card">
-  <form>
+  <form [formGroup]="listForm" (ngSubmit)="save()">
     <div class="modal-header card-block">
-      <input id="title" 
-      type="text" 
-      class="form-control form-control-lg mr-4" 
-      [value]="list.title" 
-      placeholder="list title"
-      ngModel
-      required>
+      <input id="title" type="text" class="form-control form-control-lg mr-4" [value]="listTitle" placeholder="list title" formControlName="title">
       <button type="button" class="close align-top" aria-label="Close" (click)="hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="modal-body card-block">
       <!-- <div class="form-group">
@@ -22,12 +16,7 @@
         <div class="col-12">
           <div class="form-group">
             <label for="discription" class="lead">Discription</label>
-            <textarea name="Discription"
-             [value]="list.description" 
-             class="form-control"
-             id="discription"
-             ngModel
-             required>
+            <textarea [value]="listDescription" class="form-control" id="discription" formControlName="discription">
             </textarea>
           </div>
         </div>
@@ -37,20 +26,32 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="New Task">
             <span class="input-group-btn">
-                              <button class="btn btn-primary" type="button">add</button>
-                            </span>
+              <button class="btn btn-primary" type="button" (click)="addTask()">add</button>
+            </span>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <ul class="list-group" *ngFor="let listItem of list.tasks">
+        <div class="col-12" *ngIf="id != null" formArrayName="tasks">
 
-            <li class="list-group-item">
-              {{listItem}}<span aria-hidden="true" class="close" style="cursor:pointer">&times;</span>
-            </li>
+          <div class="row" *ngFor="let listItem of listTasks.get(tasks); let i = index">
+              <div class="col-12" [formGroupName]="0">
+                  <div class="row mb-1">
+                      <div class="col-12" form>
+                        <div class="input-group">
+                          <input type="text" class="form-control"
+                          placeholder="New Task"
+                          formControlName="task"
+                          [value]="listItem">
+                          <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button">&times;</button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+          </div>
 
-          </ul>
         </div>
       </div>
     </div>

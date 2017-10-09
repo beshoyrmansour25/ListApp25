@@ -13,7 +13,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 import { ListService } from '../lists/list.service';
 
 @NgModule({
-  declarations:[
+  declarations: [
     HomeComponent,
     HeaderComponent,
   ],
@@ -22,13 +22,13 @@ import { ListService } from '../lists/list.service';
     SharedModule,
     AppRoutingModule
   ],
-  exports:[
+  exports: [
     AppRoutingModule,
     HeaderComponent,
     HomeComponent,
-    
+
   ],
-  providers:[
+  providers: [
     AuthService,
     DataStorageService,
     ListService

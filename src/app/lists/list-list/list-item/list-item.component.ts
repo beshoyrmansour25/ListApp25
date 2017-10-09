@@ -16,23 +16,27 @@ export class ListItemComponent implements OnInit {
   @Input() list: List;
   @Input() index: number;
   closeResult: string;
-  
+
   constructor(
+    private listService: ListService,
     private modalService: BsModalService,
-    private listService:ListService,
-    private router: Router,
     private viewContainerRef: ViewContainerRef,
-    private route: ActivatedRoute,
-    private bsModalRef: BsModalRef
+    private router: Router,
+    private bsModalRef: BsModalRef,
+    private route: ActivatedRoute
   ) { }
 
-  onEdit(index:number){
-    //this.userService.dataTobeEdit = { userId: user.id, firstName: user.first_name, lastName: user.last_name };
-    this.listService.id=index;
+  onEdit(index: number) {
+    // this.userService.dataTobeEdit = { userId: user.id, firstName: user.first_name, lastName: user.last_name };
+    this.listService.id = index;
     this.bsModalRef = this.modalService.show(ListEditComponent);
     // console.log(index);
-    // this.router.navigate([index],{relativeTo: this.route}); 
-   }
+    // this.router.navigate([index],{relativeTo: this.route});
+  }
+  onNew() {
+    this.listService.id = null;
+    this.bsModalRef = this.modalService.show(ListEditComponent);
+  }
   ngOnInit() {
   }
 }

@@ -3,7 +3,8 @@
 body{
     height: 100%;
     width: 100%;
-    background: url("https://hdqwalls.com/wallpapers/hex-abstract-material-design-ad.jpg") no-repeat center center fixed;
     display: block;
+    /* background: url("https://hdqwalls.com/wallpapers/hex-abstract-material-design-ad.jpg") no-repeat center center fixed; */
+    background: url("assets/Mountain.jpg") no-repeat center center fixed;
     background-size: cover;
 }
