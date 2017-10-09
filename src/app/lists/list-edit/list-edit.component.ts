@@ -44,7 +44,7 @@ export class ListEditComponent implements OnInit {
     this.listForm = new FormGroup({
       'title': new FormControl(this.listTitle),
       'discription': new FormControl(this.listDescription),
-      'tasks': new FormArray([this.listTasks])
+      'tasks': this.listTasks
     } );
   }
   save() {
