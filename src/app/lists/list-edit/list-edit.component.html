@@ -24,7 +24,13 @@
       <div class="row mb-2">
         <div class="col-12">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="New Task">
+            <input
+            type="text"
+            class="form-control"
+            placeholder="New Task"
+            formControlName="newTask"
+            [value]="newTask"
+            >
             <span class="input-group-btn">
               <button class="btn btn-primary" type="button" (click)="addTask()">add</button>
             </span>
