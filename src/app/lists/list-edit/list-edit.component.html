@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12" *ngIf="id != null" formArrayName="tasks">
+        <div class="col-12"  formArrayName="tasks">
 
           <div class="row" *ngFor="let listtask of listForm.get('tasks').controls; let i = index" [formGroupName]="i">
               <div class="col-12" >
