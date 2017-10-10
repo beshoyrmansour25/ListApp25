@@ -18,6 +18,7 @@ export class ListEditComponent implements OnInit {
   listDescription = '';
   listTasks = new FormArray([]);
   listForm: FormGroup;
+  newTask='';
   constructor
     (private bsModalRef: BsModalRef,
     private listService: ListService,
@@ -44,6 +45,7 @@ export class ListEditComponent implements OnInit {
     this.listForm = new FormGroup({
       'title': new FormControl(this.listTitle),
       'discription': new FormControl(this.listDescription),
+      'newTask':new FormControl(this.newTask),      
       'tasks': this.listTasks
     } );
   }
@@ -56,9 +58,12 @@ export class ListEditComponent implements OnInit {
 
   }
   addTask() {
+    this.newTask = this.listForm.get('newTask').value;
     (<FormArray>this.listForm.get('tasks')).push(
-      new FormControl()
-    );
+      new FormGroup({
+        'task': new FormControl(this.newTask) 
+    }));
+console.log(this.newTask);
   }
   hide() {
     this.bsModalRef.hide();
