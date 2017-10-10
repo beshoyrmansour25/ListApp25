@@ -38,8 +38,7 @@ export class ListEditComponent implements OnInit {
       }
     }
     this.initForm();
-    console.log(this.listForm.value);
-    console.log(this.listTasks.value);
+
   }
   private initForm() {
     this.listForm = new FormGroup({
@@ -50,20 +49,32 @@ export class ListEditComponent implements OnInit {
     } );
   }
   save() {
-    this.listService.updateList(this.id, this.list);
+    const savedTask =[];
+    for (var task of this.listForm.get('tasks').value) {
+      savedTask.push(task['task'])
+    }
+    
+    const newList = new List(
+      this.listForm.value['title'],
+      this.listForm.value['discription'],
+      savedTask,
+
+    )
+    if (this.id != null) {
+    this.listService.updateList(this.id, newList);}
+    else{
+      this.listService.addList(newList);}
     this.hide();
-    console.log(this.listForm.value);
   }
   delete() {
 
   }
   addTask() {
-    this.newTask = this.listForm.get('newTask').value;
+    this.newTask = this.listForm.value['newTask'];
     (<FormArray>this.listForm.get('tasks')).push(
       new FormGroup({
         'task': new FormControl(this.newTask) 
     }));
-console.log(this.newTask);
   }
   hide() {
     this.bsModalRef.hide();
