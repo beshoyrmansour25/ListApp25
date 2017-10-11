@@ -15,7 +15,7 @@ export class AuthService {
       );
   }
 
-  signinUser(email: string, password: string) {
+  signinUser(email: string, password: string) {    
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         response => {
@@ -24,7 +24,6 @@ export class AuthService {
             .then(
               (token: string) => {
                 this.token = token;
-                console.log(token);
                 this.email = email;
               }
             );
@@ -42,9 +41,7 @@ export class AuthService {
 
   getToken() {
     firebase.auth().currentUser.getToken()
-      .then(
-        (token: string) => this.token = token
-      );
+      .then((token: string) => this.token = token);
     return this.token;
   }
   isAuthenticated() {
