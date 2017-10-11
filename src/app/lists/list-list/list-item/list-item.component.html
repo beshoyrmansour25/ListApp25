@@ -8,11 +8,9 @@
       {{listItem}}
     </li>
   </ul>
-  <div class="card-block">
-      <pre>{{closeResult}}</pre>
-  </div>
   <div class="card-footer d-flex flex-row  justify-content-between align-items-center">
-    <a class="text-danger" (click)="onNew()">Delete</a>
+    <!-- <a class="text-danger"  (click)="isCollapsed = !isCollapsed">Delete</a> -->
+    <a class="text-danger"  (click)="onDelete(index)">Delete</a>
     <a class="btn card-link btn-outline-primary" (click)="onEdit(index)">Edit</a>
   </div>
 </div>

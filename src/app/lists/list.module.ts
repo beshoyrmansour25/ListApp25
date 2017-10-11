@@ -9,7 +9,6 @@ import { ListListComponent } from './list-list/list-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,

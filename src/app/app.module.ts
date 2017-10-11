@@ -26,9 +26,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
     SharedModule,
     AuthModule,
     CoreModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
-  providers: [BsModalRef],
+  providers: [BsModalRef, ],
   entryComponents: [ListEditComponent],
   bootstrap: [AppComponent]
 })

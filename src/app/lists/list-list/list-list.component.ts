@@ -1,3 +1,4 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { List } from './../list.model';
 import { ListService } from './../list.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,9 +15,11 @@ export class ListListComponent implements OnInit {
 
   constructor(
     private listService: ListService,
+    private dataStorageService: DataStorageService
   ) { }
 
   ngOnInit() {
+    this.dataStorageService.getList();
     this.subscription = this.listService.listChanged
       .subscribe(
       (lists: List[]) => {
@@ -25,5 +28,7 @@ export class ListListComponent implements OnInit {
       );
     this.lists = this.listService.getLists();
   }
-
+  saveData(){
+    this.dataStorageService.storeList();
+  }
 }
