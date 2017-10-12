@@ -1,4 +1,13 @@
 <div class="d-flex flex-row justify-content-between algin-items-center navbar navbar-dark bg-dark">
   <h3 class="display-4 text-white" routerLink="/">Todo 25</h3>
-  <button class="btn btn-outline-success btn-lg" style="border-radius:50%" type="button" (click)="newList()">+</button>
+  <ul class="nav">
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li class="nav-item"><a  class="nav-link text-white" routerLink="/signup">Register</a></li>
+        <li class="nav-item"><a  class="nav-link text-white" routerLink="/signin">Login</a></li>
+      </ng-template>
+      <ng-template [ngIf]="authService.isAuthenticated()">
+          <!-- <li class="nav-item"><h5  class="text-white d-inline"> Welcome : {{email}}</h5></li> -->
+          <li class="nav-item"><button class="btn btn-outline-success btn-lg d-inline" style="border-radius:50%" type="button" (click)="newList()">+</button></li>
+        </ng-template>
+  </ul>
 </div>
