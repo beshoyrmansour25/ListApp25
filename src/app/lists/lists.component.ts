@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  email: string;
+  email=null;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
