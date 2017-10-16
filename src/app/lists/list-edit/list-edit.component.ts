@@ -1,9 +1,9 @@
 import { DataStorageService } from './../../shared/data-storage.service';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { List } from './../list.model';
 import { ListService } from './../list.service';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { Response } from '@angular/http';
 
 @Component({
@@ -25,9 +25,11 @@ export class ListEditComponent implements OnInit {
     (
     private bsModalRef: BsModalRef,
     private listService: ListService,
-    private dataStorageService: DataStorageService
+    private dataStorageService: DataStorageService,
+    private fb: FormBuilder
     ) { }
 
+  @ViewChild('myInput') input: ElementRef;
 
   ngOnInit() {
     this.id = this.listService.id;
@@ -43,12 +45,20 @@ export class ListEditComponent implements OnInit {
   }
 
   private initForm() {
-    this.listForm = new FormGroup({
-      'title': new FormControl(this.listTitle),
-      'discription': new FormControl(this.listDescription),
-      'newTask': new FormControl(this.newTask),
-      'tasks': this.listTasks
-    });
+
+    this.listForm = this.fb.group({
+      title: this.listTitle,
+      discription: this.listDescription,
+      newTask: this.newTask,
+      tasks: this.listTasks
+    })
+
+    // this.listForm = new FormGroup({
+    //   'title': new FormControl(this.listTitle),
+    //   'discription': new FormControl(this.listDescription),
+    //   'newTask': new FormControl(this.newTask),
+    //   'tasks': this.listTasks
+    // });
   }
 
   save() {
@@ -80,15 +90,16 @@ export class ListEditComponent implements OnInit {
 
   addTask() {
     this.newTask = this.listForm.value['newTask'];
+
     (<FormArray>this.listForm.get('tasks')).push(
       new FormGroup({
         'task': new FormControl(this.newTask)
       }
       ));
-      // this.listForm.patchValue({'newTask':null});
-      // (<FormControl>this.listForm.controls['task']).patchValue({'newTask':null}); 
+    // this.listForm.patchValue({'newTask':null});
+    // (<FormControl>this.listForm.controls['task']).patchValue({'newTask':null}); 
 
-     }
+  }
 
   onDeleteTask(index: number) {
     (<FormArray>this.listForm.get('tasks')).removeAt(index);
@@ -102,6 +113,6 @@ export class ListEditComponent implements OnInit {
 
   onSaveData() {
     this.dataStorageService.storeList()
-    }
+  }
 
 }

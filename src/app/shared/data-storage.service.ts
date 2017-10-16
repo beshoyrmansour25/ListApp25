@@ -11,30 +11,31 @@ export class DataStorageService {
     private listService: ListService,
     private authService: AuthService
   ) { }
-  storeList(){
-    const token = this.authService.getToken();
-
+  storeList() {
+    const token = localStorage.getItem('token');
     if (this.listService.getLists().length > 0) {
       this.http.put('https://listapp25.firebaseio.com/lists.json?auth=' + token, this.listService.getLists())
-      .subscribe(
-          (Response) => {
-              console.log(Response);
-          }
-      ); } else {alert('No Data to save !'); }
+        .subscribe(
+        (Response) => {
+          console.log(Response);
+        }
+        );
+    } else { alert('No Data to save !'); }
   }
   getList() {
-    const token = this.authService.getToken();
-    this.http.get('https://listapp25.firebaseio.com/lists.json?auth='+ token)
-    .map(
-      (response: Response)=>{
-        const lists: List[]= response.json();
+    const token = localStorage.getItem('token');
+
+    this.http.get('https://listapp25.firebaseio.com/lists.json?auth=' + token)
+      .map(
+      (response: Response) => {
+        const lists: List[] = response.json();
         return lists;
       }
-    ).subscribe(
+      ).subscribe(
       (list: List[]) => {
         this.listService.setList(list);
       }
-    );
+      );
   }
-
+  
 }
