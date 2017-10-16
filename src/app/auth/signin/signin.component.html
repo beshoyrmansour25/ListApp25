@@ -1,6 +1,6 @@
 <p class="display-4 text-center align-middle">Sign<strong>in</strong></p>
 <div class="row align-items-center">
-  <form class="col-12 col-md-6" (ngSubmit)="onSignin(f)" #f="ngForm">
+  <form class="col-md-8 col-xs-12" (ngSubmit)="onSignin(f)" #f="ngForm">
     <div class="form-group col-12">
       <label for="sigininEmail" class="form-label">Email</label>
       <div class="">
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="text-center align-middle col-4">
+      <div class="text-center align-middle col-md-4 col-sm-12">
       <div class="form-group ">
           <label class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input">
@@ -23,7 +23,7 @@
           </label>
         </div>
       </div>
-      <div class="text-right align-right col-8 ">
+      <div class="text-right align-right col-md-8 col-sm-12">
           <a class="btn  btn-outline-primary" routerLink="/signup">Don't have account yet</a>
         <button type="submit" class="btn btn-lg btn-primary mx-3">Sign<strong>In</strong></button>
       </div>
