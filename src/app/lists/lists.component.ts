@@ -11,7 +11,9 @@ export class ListsComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.email = this.authService.email;
+
+    this.email = localStorage.getItem('email');
+;
   }
 
 }
