@@ -1,3 +1,25 @@
-<p>
-  signup works!
-</p>
+<p class="display-4 text-center align-middle">Sign<strong>up</strong></p>
+<div class="row align-items-center">
+  <form class="col-12 col-md-6" (ngSubmit)="onSignup(f)" #f="ngForm">
+    <div class="form-group col-sm-12">
+      <label for="sigininEmail" class="form-label">Email</label>
+      <div class="">
+        <input type="email" id="email" name="email" ngModel class="form-control" id="sigininEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group col-sm-12">
+      <label for="sigininPassword" class="form-label">Password</label>
+      <div class="">
+        <input type="password" id="password" name="password" ngModel class="form-control" id="sigininPassword" placeholder="Password">
+      </div>
+    </div>
+    <div class="d-flex justify-content-between text-center align-middle col-12 ">
+        <a class="btn btn-lg btn-outline-primary" routerLink="/signin">Already have account</a>
+        <button type="submit" class="btn btn-lg btn-primary">Sign<strong>Up</strong></button>
+    </div>
+
+  </form>
+  <div class="col-6">
+    <div class=""></div>
+  </div>
+</div>

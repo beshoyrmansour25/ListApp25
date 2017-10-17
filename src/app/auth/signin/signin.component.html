@@ -1,3 +1,36 @@
-<p>
-  signin works!
-</p>
+<p class="display-4 text-center align-middle">Sign<strong>in</strong></p>
+<div class="row align-items-center">
+  <form class="col-12 col-md-6" (ngSubmit)="onSignin(f)" #f="ngForm">
+    <div class="form-group col-12">
+      <label for="sigininEmail" class="form-label">Email</label>
+      <div class="">
+        <input type="email" id="email" name="email" ngModel class="form-control" id="sigininEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group col-12">
+      <label for="sigininPassword" class="form-label">Password</label>
+      <div class="">
+        <input type="password" id="password" name="password" ngModel  class="form-control" id="sigininPassword" placeholder="Password">
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center align-middle col-4">
+      <div class="form-group ">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+          </label>
+        </div>
+      </div>
+      <div class="text-right align-right col-8 ">
+          <a class="btn  btn-outline-primary" routerLink="/signup">Don't have account yet</a>
+        <button type="submit" class="btn btn-lg btn-primary mx-3">Sign<strong>In</strong></button>
+      </div>
+      
+    </div>
+  </form>
+  <div class="col-6">
+    <div class=""></div>
+  </div>
+</div>
