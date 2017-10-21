@@ -6,7 +6,6 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 export class AuthGardService {
 
   constructor(private authService: AuthService) {}
-  
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       return this.authService.isAuthenticated();
     }

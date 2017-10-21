@@ -37,7 +37,7 @@ export class ListEditComponent implements OnInit {
       this.list = this.listService.getList(this.id);
       this.listTitle = this.list.title;
       this.listDescription = this.list.description;
-      for (let task of this.list.tasks) {
+      for (const task of this.list.tasks) {
         this.listTasks.push(new FormGroup({ 'task': new FormControl(task) }));
       }
     }
@@ -51,7 +51,7 @@ export class ListEditComponent implements OnInit {
       discription: this.listDescription,
       newTask: this.newTask,
       tasks: this.listTasks
-    })
+    });
 
     // this.listForm = new FormGroup({
     //   'title': new FormControl(this.listTitle),
@@ -63,7 +63,7 @@ export class ListEditComponent implements OnInit {
 
   save() {
     const savedTask = [];
-    for (var task of this.listForm.get('tasks').value) {
+    for (const task of this.listForm.get('tasks').value) {
       savedTask.push(task['task']);
     }
 
@@ -71,11 +71,10 @@ export class ListEditComponent implements OnInit {
       this.listForm.value['title'],
       this.listForm.value['discription'],
       savedTask
-    )
+    );
     if (this.id != null) {
       this.listService.updateList(this.id, newList);
-    }
-    else {
+    } else {
       this.listService.addList(newList);
     }
     this.onSaveData();
@@ -97,22 +96,19 @@ export class ListEditComponent implements OnInit {
       }
       ));
     // this.listForm.patchValue({'newTask':null});
-    // (<FormControl>this.listForm.controls['task']).patchValue({'newTask':null}); 
+    // (<FormControl>this.listForm.controls['task']).patchValue({'newTask':null});
 
   }
-
   onDeleteTask(index: number) {
     (<FormArray>this.listForm.get('tasks')).removeAt(index);
   }
-
   hide() {
     this.bsModalRef.hide();
     this.id = null;
     this.listService.id = null;
   }
-
   onSaveData() {
-    this.dataStorageService.storeList()
+    this.dataStorageService.storeList();
   }
 
 }

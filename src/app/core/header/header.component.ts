@@ -10,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-email=null;
+  email = null;
   constructor(
     private modalService: BsModalService,
     private bsModalRef: BsModalRef,
-    private authService:AuthService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ email=null;
     this.bsModalRef = this.modalService.show(ListEditComponent);
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
   }
 

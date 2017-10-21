@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { List } from './../../list.model';
 import { ListService } from './../../list.service';
-import { Component, OnInit, Input, ViewChild, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { ListEditComponent } from '../../list-edit/list-edit.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
@@ -13,7 +13,7 @@ import { Response } from '@angular/http';
   templateUrl: './list-item.component.html',
   styleUrls: ['./list-item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ListItemComponent {
 
   @Input() list: List;
   @Input() index: number;
@@ -39,15 +39,12 @@ export class ListItemComponent implements OnInit {
     this.listService.id = null;
     this.bsModalRef = this.modalService.show(ListEditComponent);
   }
-  
-  ngOnInit() {}
-  
   onDelete(index: number) {
     this.listService.deleteList(index);
     this.dataStorageService.storeList();
     this.onSaveData();
   }
   onSaveData() {
-    this.dataStorageService.storeList()
-    }
+    this.dataStorageService.storeList();
+  }
 }

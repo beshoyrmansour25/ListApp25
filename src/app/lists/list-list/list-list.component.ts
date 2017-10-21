@@ -28,7 +28,7 @@ export class ListListComponent implements OnInit {
       );
     this.lists = this.listService.getLists();
   }
-  saveData(){
+  saveData() {
     this.dataStorageService.storeList();
   }
 }

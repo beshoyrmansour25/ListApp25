@@ -9,7 +9,7 @@ import { List } from './list.model';
 export class ListService {
   listChanged = new Subject<List[]>();
   public id: number;
-  private lists: List[]=[];
+  private lists: List[] = [];
 
   constructor(
     private authService: AuthService
@@ -19,8 +19,8 @@ export class ListService {
     this.listChanged.next(this.lists.slice());
   }
   getLists() {
-     return this.lists.slice();
-    }
+    return this.lists.slice();
+  }
 
   getList(index: number) {
     this.id = index;

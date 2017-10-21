@@ -7,13 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
-  email=null;
+  email = null;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-
     this.email = localStorage.getItem('email');
-;
   }
 
 }

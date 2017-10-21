@@ -15,11 +15,7 @@ export class DataStorageService {
     const token = localStorage.getItem('token');
     if (this.listService.getLists().length > 0) {
       this.http.put('https://listapp25.firebaseio.com/lists.json?auth=' + token, this.listService.getLists())
-        .subscribe(
-        (Response) => {
-          console.log(Response);
-        }
-        );
+        .subscribe( (response) => console.log(response));
     } else { alert('No Data to save !'); }
   }
   getList() {
@@ -37,5 +33,4 @@ export class DataStorageService {
       }
       );
   }
-  
 }

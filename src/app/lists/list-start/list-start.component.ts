@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild  } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 @Component({
@@ -9,16 +9,16 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 export class ListStartComponent implements OnInit {
 
   public modalRef: BsModalRef;
-  constructor(private modalService: BsModalService) {}
-  @ViewChild('childModal') public childModal:ModalDirective;
-  
-   public showChildModal():void {
-     this.childModal.show();
-   }
-  
-   public hideChildModal():void {
-     this.childModal.hide();
-   } 
+  constructor(private modalService: BsModalService) { }
+  @ViewChild('childModal') public childModal: ModalDirective;
+
+  public showChildModal(): void {
+    this.childModal.show();
+  }
+
+  public hideChildModal(): void {
+    this.childModal.hide();
+  }
 
   ngOnInit() {
   }
@@ -26,6 +26,6 @@ export class ListStartComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  
+
 
 }
